@@ -21,19 +21,16 @@ function generateIcs(e) {
     for (const element of childrenForm) {
         console.log("elem", element.value);
         if(element.id == "start_date") {
-            icsBody += "DSTART:" + element.value.split("-").join("") + "T180000Z\n";
+            icsBody += "DTSTART:" + element.value.split("-").join("") + "T180000Z\n";
         }else if(element.id == "end_date") {
-            icsBody += "DEND:" + element.value.split("-").join("") + "T190000Z\n";
+            icsBody += "DTEND:" + element.value.split("-").join("") + "T190000Z\n";
         }
     }
 
     icsBody += `SUMMARY:Test\nEND:VEVENT\n`;
     ics = icsHead + icsBody + icsFoot;
 
-    console.log("ics", ics);
-    console.log("escaped", decodeURIComponent(ics));
 
-
-    window.open("data:text/calendar;charset=utf8," + decodeURIComponent(ics));
+    window.open("data:text/calendar;charset=utf8," + encodeURIComponent(ics));
 
 }
