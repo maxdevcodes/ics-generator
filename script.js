@@ -20,14 +20,16 @@ function generateIcs(e) {
 
     for (const element of childrenForm) {
         console.log("elem", element.value);
-        if(element.id == "start_date") {
+        if(element.id == "title") {
+            icsBody += "SUMMARY:" + element.value + "\n";
+        }else if(element.id == "start_date") {
             icsBody += "DTSTART:" + element.value.split("-").join("") + "T180000Z\n";
         }else if(element.id == "end_date") {
             icsBody += "DTEND:" + element.value.split("-").join("") + "T190000Z\n";
         }
     }
 
-    icsBody += `SUMMARY:Test\nEND:VEVENT\n`;
+    icsBody += `END:VEVENT\n`;
     ics = icsHead + icsBody + icsFoot;
 
 
