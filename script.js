@@ -23,7 +23,10 @@ function generateIcs(e) {
         if(element.id == "title") {
             icsBody += "SUMMARY:" + element.value + "\n";
         }else if(element.id == "start_date") {
-            icsBody += "DTSTART:" + element.value.split("-").join("") + "T180000Z\n";
+            icsBody += "DTSTART:" + element.value.split("-").join("");
+        }else if(element.id == "start_time") {
+            // Got to check timezone, this value is treated as UTC+0
+            icsBody += "T" + element.value.split(":").join("") + "00Z\n";
         }else if(element.id == "end_date") {
             icsBody += "DTEND:" + element.value.split("-").join("") + "T190000Z\n";
         }
