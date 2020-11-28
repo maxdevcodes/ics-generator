@@ -13,15 +13,17 @@ var ics;
 function generateIcs(e) {
     e.preventDefault();
     var form = document.getElementById("form_generator");
-    var childrenForm = form.getElementsByTagName("input");
+    var childrenForm = form.getElementsByClassName("input");
     console.log(childrenForm);
     
     icsBody = "BEGIN:VEVENT\n";
 
     for (const element of childrenForm) {
-        console.log("elem", element.value);
+        console.log(element.id, element.value);
         if(element.id == "title") {
             icsBody += "SUMMARY:" + element.value + "\n";
+        }else if(element.id == "description") {
+            icsBody += "DESCRIPTION:" + element.value + "\n";
         }else if(element.id == "start_date") {
             icsBody += "DTSTART:" + element.value.split("-").join("");
         }else if(element.id == "start_time") {
