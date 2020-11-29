@@ -27,10 +27,9 @@ function generateIcs(e) {
         }else if(element.id == "start_date") {
             icsBody += "DTSTART:" + element.value.split("-").join("");
         }else if(element.id == "start_time") {
-            // Got to check timezone, this value is treated as UTC+0
-            icsBody += "T" + element.value.split(":").join("") + "00Z\n";
+            icsBody += "T" + element.value.split(":").join("") + "00\n";
         }else if(element.id == "end_date") {
-            icsBody += "DTEND:" + element.value.split("-").join("") + "T190000Z\n";
+            icsBody += "DTEND:" + element.value.split("-").join("") + "T190000\n";
         }
     }
 
