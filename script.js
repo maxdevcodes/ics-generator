@@ -29,7 +29,9 @@ function generateIcs(e) {
         }else if(element.id == "start_time") {
             icsBody += "T" + element.value.split(":").join("") + "00\n";
         }else if(element.id == "end_date") {
-            icsBody += "DTEND:" + element.value.split("-").join("") + "T190000\n";
+            icsBody += "DTEND:" + element.value.split("-").join("");
+        }else if(element.id == "end_time") {
+            icsBody += "T" + element.value.split(":").join("") + "00\n";
         }
     }
 
