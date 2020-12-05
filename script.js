@@ -39,6 +39,11 @@ function generateIcs(e) {
     ics = icsHead + icsBody + icsFoot;
 
 
-    window.open("data:text/calendar;charset=utf8," + encodeURIComponent(ics));
+    const blob = new File([ics], {type: "text/plain"});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "event.ics";
+    link.click();
 
 }
