@@ -47,3 +47,5 @@ function generateIcs(e) {
     link.click();
 
 }
+
+// To-do: refactor function to separate the download with the ics fill up to add multiples events within a file
