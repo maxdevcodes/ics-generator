@@ -3,7 +3,7 @@ VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 `;
 
-var icsBody;
+var icsBody = "";
 
 var icsFoot = `END:VCALENDAR`;
 
@@ -36,8 +36,10 @@ function generateIcs(e) {
     }
 
     icsBody += `END:VEVENT\n`;
-    ics = icsHead + icsBody + icsFoot;
+}
 
+function downloadFile() {
+    ics = icsHead + icsBody + icsFoot;
 
     const blob = new File([ics], {type: "text/plain"});
     const url = URL.createObjectURL(blob);
@@ -47,5 +49,3 @@ function generateIcs(e) {
     link.click();
 
 }
-
-// To-do: refactor function to separate the download with the ics fill up to add multiples events within a file
