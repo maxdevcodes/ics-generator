@@ -23,8 +23,10 @@
             <input class="input" type="date" name="end_date" id="end_date">
             <label for="start_date">End time:</label>
             <input class="input" type="time" name="end_time" id="end_time">
-            <button class="btn" type="submit" onclick="generateIcs(event)">Generate ics</button>
-            <button class="btn" type="submit" onclick="downloadFile()">Download</button>
+            <div class="buttons-container">
+                <button class="btn" type="submit" onclick="generateIcs(event)">Generate ics</button>
+                <button class="btn" type="submit" onclick="downloadFile()">Download</button>
+            </div>
         </form>
     </div>
 
