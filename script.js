@@ -16,7 +16,7 @@ function generateIcs(e) {
     var childrenForm = form.getElementsByClassName("input");
     console.log(childrenForm);
     
-    icsBody = "BEGIN:VEVENT\n";
+    icsBody += "BEGIN:VEVENT\n";
 
     for (const element of childrenForm) {
         console.log(element.id, element.value);
