@@ -1,15 +1,14 @@
+// Set common header and foot for the file
 var icsHead = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 `;
-
-var icsBody = "";
-
 var icsFoot = "END:VCALENDAR";
 
+// Initialize body variable for events concatenation
+var icsBody = "";
 
-var ics;
-
+// Generates a formated calendar event (VEVENT)
 function generateIcs(e) {
     e.preventDefault();
     
@@ -32,8 +31,9 @@ function generateIcs(e) {
     icsBody += "END:VEVENT\n";
 }
 
+// Creates a file and immediately downloads in the browser
 function downloadFile() {
-    ics = icsHead + icsBody + icsFoot;
+    let ics = icsHead + icsBody + icsFoot;
 
     const blob = new File([ics], {type: "text/plain"});
     const url = URL.createObjectURL(blob);
