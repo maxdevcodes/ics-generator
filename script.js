@@ -29,6 +29,8 @@ function generateIcs(e) {
     icsBody += "T" + endTime + "00\n";
 
     icsBody += "END:VEVENT\n";
+
+    notifyAddition();
 }
 
 // Creates a file and immediately downloads in the browser
@@ -42,4 +44,21 @@ function downloadFile() {
     link.download = "event.ics";
     link.click();
 
+}
+
+function notifyAddition() {
+    var msg = "Added event";
+
+    const modal = document.createElement("div");
+    modal.classList.add('modal');
+    modal.innerHTML = `
+        <p>${msg}</p>
+        <button type="button" class="btn" id="close-modal" onclick="closeModal(event)">Close</button>
+    `;
+
+    document.querySelector("body").appendChild(modal);
+}
+
+function closeModal(e) {
+    document.querySelector(`#${e.target.id}`).parentElement.remove();
 }
